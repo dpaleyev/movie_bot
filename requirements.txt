@@ -1,0 +1,6 @@
+aiogram
+aiohttp
+bs4
+requests
+sqlite3
+asyncio

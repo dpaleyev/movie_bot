@@ -1,13 +1,7 @@
-import aiohttp
-import requests
-
 from aiogram import Router, F
 from aiogram.types import Message, InlineKeyboardButton, CallbackQuery, URLInputFile, InputMediaPhoto
 from aiogram.fsm.context import FSMContext
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-
-from bs4 import BeautifulSoup
-from aiogram.enums import ParseMode
 
 import src.database as db
 from src.request import search, get_pirate_link, get_view_link
