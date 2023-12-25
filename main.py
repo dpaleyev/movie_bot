@@ -14,7 +14,7 @@ import src.database as db
 bot = Bot(token=os.environ['BOT_TOKEN'])
 dp = Dispatcher()
 
-BASE_WEBHOOK_URL = "http://moviebot.alwaysdata.net/"
+BASE_WEBHOOK_URL = "https://moviebot.alwaysdata.net/"
 WEBHOOK_PATH = "/movie_bot/"
 
 WEB_SERVER_HOST = '::'
