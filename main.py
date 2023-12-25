@@ -5,6 +5,8 @@ from aiogram import Dispatcher
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 from aiohttp import web
 import asyncio
+import logging
+import sys
 
 from handlers import movie, commands
 import src.database as db
@@ -21,7 +23,7 @@ WEB_SERVER_PORT = 8350
 async def on_startup(bot: Bot) -> None:
     await bot.set_webhook(f"{BASE_WEBHOOK_URL}{WEBHOOK_PATH}")
 
-def main():
+async def main():
     db.setup()
     dp.include_router(commands.router)
     dp.include_router(movie.router)
@@ -43,4 +45,5 @@ def main():
     web.run_app(app, host=WEB_SERVER_HOST, port=WEB_SERVER_PORT)
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     asyncio.run(main())
