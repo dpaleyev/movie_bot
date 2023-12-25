@@ -10,14 +10,14 @@ from handlers.movie import movie_callback, get_pagination_keyboard
 
 router = Router()
 
-@router.message(Command('start'))
+@router.message(Command('start', 'help'))
 async def start(message: Message):
     await message.answer("""Привет, я бот для поиска фильмов. Введи название фильма, который хочешь найти.\n
-                         /history - история запросов\n
-                         /stat - статистика просмотров\n
-                         /saved - сохраненные фильмы\n
-                         /saved @username - общие сохраненные фильмы\n
-                         /help - помощь""")
+/history - история запросов
+/stat - статистика просмотров
+/saved - сохраненные фильмы
+/saved @username - общие сохраненные фильмы
+/help - помощь""")
 
 @router.message(Command('history'))
 async def history(message: Message):
