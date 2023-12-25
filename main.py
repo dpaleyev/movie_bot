@@ -13,7 +13,7 @@ bot = Bot(token=os.environ['BOT_TOKEN'])
 dp = Dispatcher()
 
 BASE_WEBHOOK_URL = "http://moviebot.alwaysdata.net/"
-WEBHOOK_PATH = "/bot/"
+WEBHOOK_PATH = "/movie_bot/"
 
 WEB_SERVER_HOST = '::'
 WEB_SERVER_PORT = 8350
