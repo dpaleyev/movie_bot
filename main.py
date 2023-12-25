@@ -21,11 +21,11 @@ WEB_SERVER_PORT = 8350
 async def on_startup(bot: Bot) -> None:
     await bot.set_webhook(f"{BASE_WEBHOOK_URL}{WEBHOOK_PATH}")
 
-async def main():
+def main():
     db.setup()
     dp.include_router(commands.router)
     dp.include_router(movie.router)
-    await bot.delete_webhook(drop_pending_updates=True)
+    bot.delete_webhook(drop_pending_updates=True)
 
     dp.startup.register(on_startup)
 
@@ -41,8 +41,6 @@ async def main():
     setup_application(app, dp, bot=bot)
 
     web.run_app(app, host=WEB_SERVER_HOST, port=WEB_SERVER_PORT)
-
-    await dp.start_polling(bot)
 
 if __name__ == '__main__':
     asyncio.run(main())
