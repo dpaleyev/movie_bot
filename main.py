@@ -27,7 +27,7 @@ async def main():
     db.setup()
     dp.include_router(commands.router)
     dp.include_router(movie.router)
-    bot.delete_webhook(drop_pending_updates=True)
+    await bot.delete_webhook(drop_pending_updates=True)
 
     dp.startup.register(on_startup)
 
