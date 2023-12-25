@@ -12,7 +12,12 @@ router = Router()
 
 @router.message(Command('start'))
 async def start(message: Message):
-    await message.answer('Привет, я бот для поиска фильмов. Введи название фильма, который хочешь найти.')
+    await message.answer("""Привет, я бот для поиска фильмов. Введи название фильма, который хочешь найти.\n
+                         /history - история запросов\n
+                         /stat - статистика просмотров\n
+                         /saved - сохраненные фильмы\n
+                         /saved @username - общие сохраненные фильмы\n
+                         /help - помощь""")
 
 @router.message(Command('history'))
 async def history(message: Message):
